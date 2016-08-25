@@ -44,7 +44,7 @@ protected function handleForm($post, $edit, $upload, $submit, $form){
     $value = isset($element['value'])? (string) $element['value'] : '';
     $done = FALSE;
     
-    if(!isset($edit[$name])) {
+    if(isset($edit[$name])) {
       switch ($type){
         case 'text' :
         case 'textarea' :
