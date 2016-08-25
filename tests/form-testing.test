@@ -18,8 +18,21 @@ class ModuleTestingExampleTestCase extends DrupalWebTestCase {
     $this->drupalLogin($this->normal_user);
   }
   
-  public function testPage() {
-    $this->drupalGet('form');
-    $this->assertText('Title');
-  }
+//  public function testPage() {
+//    $this->drupalGet('form');
+//    $this->assertText('Title');
+//  }
+
+public function exampleCreate(){
+  // Create node to edit.
+  $edit = array();
+  $edit['name'] = $this->randomName(7);
+  $edit['last_name'] = $this->randomName(9);
+  $edit['title'] = $this->randomName(8);
+  $edit['body'] = $this->randomName(16);
+  
+  $this->drupalPost('form', $edit, t('Save'));
+  $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title']));
+}
+
 }
