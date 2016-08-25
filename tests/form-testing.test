@@ -35,7 +35,7 @@ class ModuleTestingFormCase extends DrupalWebTestCase {
 //    $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title'])));
     
     $this->drupalPost('form', array('name' => t('firstname'), 'last_name' => t('lastname')), t('Submit'));
-    $this->drupalPost('examples/form_example/tutorial/4', array(), t('Submit'));
+    $this->drupalPost('form', array(), t('Submit'));
     $this->assertText(t('First name field is required'));
     $this->assertText(t('Last name field is required'));
   }
