@@ -1,0 +1,4 @@
+name = Form basic
+description = A basic form
+core = 7.x
+package = MyModules
