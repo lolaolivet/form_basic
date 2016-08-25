@@ -32,7 +32,7 @@ public function exampleCreate(){
   $edit['body'] = $this->randomName(16);
   
   $this->drupalPost('form', $edit, t('Save'));
-  $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title']));
+  $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title'])));
 }
 
 }
