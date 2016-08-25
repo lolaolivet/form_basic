@@ -1,6 +1,6 @@
 <?php
 
-class ModuleTestingExampleTestCase extends DrupalWebTestCase {
+class ModuleTestingFormCase extends DrupalWebTestCase {
   protected $normal_user;
   
   public static function getInfo() {
@@ -33,6 +33,29 @@ public function exampleCreate(){
   
   $this->drupalPost('form', $edit, t('Save'));
   $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title'])));
+}
+
+protected function handleForm($post, $edit, $upload, $submit, $form){
+  $elements = $form->xpath('.//input[not(@disabled)]|.//textarea[not(@disabled)].//select[not(@disabled)]');
+  $submit_matches = FALSE;
+  foreach ($elements as $element) {
+    $name = (string) $element['name'];
+    $type = isset($element['type']) ? (string) $element['type'] : $element->getName();
+    $value = isset($element['value'])? (string) $element['value'] : '';
+    $done = FALSE;
+    
+    if(isset($edit[$name])) {
+      switch ($type){
+        case 'text' :
+        case 'textarea' :
+        case 'email' :
+        case 'submit' :
+          break;
+      }
+    }
+  }
+  
+  return $submit_matches;
 }
 
 }
