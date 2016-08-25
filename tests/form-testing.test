@@ -17,45 +17,41 @@ class ModuleTestingFormCase extends DrupalWebTestCase {
     $this->normal_user = $this->drupalCreateUser();
     $this->drupalLogin($this->normal_user);
   }
-  
+
 //  public function testPage() {
 //    $this->drupalGet('form');
 //    $this->assertText('Title');
 //  }
-
-public function exampleCreate(){
-  // Create node to edit.
-  $edit = array();
-  $edit['name'] = $this->randomName(7);
-  $edit['last_name'] = $this->randomName(9);
-  $edit['title'] = $this->randomName(8);
-  $edit['body'] = $this->randomName(16);
   
-  $this->drupalPost('form', $edit, t('Save'));
-  $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title'])));
-}
-
-protected function handleForm($post, $edit, $upload, $submit, $form){
-  $elements = $form->xpath('.//input[not(@disabled)]|.//textarea[not(@disabled)].//select[not(@disabled)]');
-  $submit_matches = FALSE;
-  foreach ($elements as $element) {
-    $name = (string) $element['name'];
-    $type = isset($element['type']) ? (string) $element['type'] : $element->getName();
-    $value = isset($element['value'])? (string) $element['value'] : '';
-    $done = FALSE;
+  public function exampleCreate() {
+    // Create node to edit.
+    $edit = array();
+//    $edit['name'] = $this->randomName(7);
+    $edit['last_name'] = $this->randomName(9);
+    $edit['title'] = $this->randomName(8);
+    $edit['body'] = $this->randomName(16);
     
-    if(isset($edit[$name])) {
-      switch ($type){
-        case 'text' :
-        case 'textarea' :
-          break;
-      }
-    }else{
-      return 'lalala';
-    }
+    $this->drupalPost('form', $edit, t('Save'));
+    $this->assertText(t('Example Node Type @title has been created.', array('@title' => $edit['title'])));
   }
   
-  return $submit_matches;
-}
-
+  protected function handleForm($post, $edit, $upload, $submit, $form) {
+    $elements = $form->xpath('.//input[not(@disabled)]|.//textarea[not(@disabled)].//select[not(@disabled)]');
+    $submit_matches = FALSE;
+    foreach ($elements as $element) {
+      $name = (string)$element['name'];
+      $type = isset($element['type']) ? (string)$element['type'] : $element->getName();
+      $value = isset($element['value']) ? (string)$element['value'] : '';
+      $done = FALSE;
+      
+      if (isset($edit[$name])) {
+        return $name;
+      } else {
+        return 'Nope';
+      }
+    }
+    
+    return $submit_matches;
+  }
+  
 }
