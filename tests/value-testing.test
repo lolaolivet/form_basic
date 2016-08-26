@@ -19,12 +19,6 @@ class ModuleTestingValueCase extends FormsTestCase {
   }
   
   public function testRequiredFields() {
-    // Create node to edit.
-//    $edit = array();
-//    $edit['name'] = $this->randomName(7);
-//    $edit['last_name'] = $this->randomName(9);
-//    $edit['title'] = $this->randomName(8);
-//    $edit['body'] = $this->randomName(16);
     
     $empty_strings = array('""' => "", '"\n"' => "\n", '" "' => " ", '"\t"' => "\t", '" \n\t "' => " \n\t ", '"\n\n\n\n\n"' => "\n\n\n\n\n");
     

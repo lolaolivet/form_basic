@@ -21,32 +21,37 @@ function form_basic_main() {
   $form['name'] = array(
     '#type' => 'textfield',
     '#title' => t('Enter your Name'),
-    '#description' => t('Your First name goes here')
+    '#description' => t('Your First name goes here'),
+    '#value' => 'Lola'
   );
   
   $form['last_name'] = array(
     '#type' => 'textfield',
     '#title' => t('Enter your Last name'),
-    '#description' => t('Your Last name goes here')
+    '#description' => t('Your Last name goes here'),
+    '#value' => 'Olivet'
   );
   
   $form['title'] = array(
     '#type' => 'textfield',
     '#title' => t('Enter a Title'),
-    '#description' => t('The Title goes here')
+    '#description' => t('The Title goes here'),
+    '#value' => 'Haifisch'
   );
   
   $form['body'] = array(
     '#type' => 'textarea',
     '#value' => '',
     '#title' => t('Enter your Comment'),
-    '#description' => t('Your Comment goes here')
+    '#description' => t('Your Comment goes here'),
+    '#value' => 'Lalalalalalalalal.'
   );
   
   $form['country'] = array(
     '#type' => 'select',
     '#title' => t('Select your Country'),
-    '#options' => array('USA', 'UK', 'France', 'Japan')
+    '#options' => array('USA', 'UK', 'France', 'Japan'),
+    '#value' => '1'
   );
   
   $form['submit'] = array(
