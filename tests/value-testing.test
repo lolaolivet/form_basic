@@ -1,6 +1,6 @@
 <?php
 
-class ModuleTestingValueCase extends FormsTestCase {
+class ModuleTestingValueCase extends DrupalWebTestCase {
   protected $normal_user;
   
   public static function getInfo() {
