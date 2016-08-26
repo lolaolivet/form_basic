@@ -43,11 +43,11 @@ function form_basic_main() {
     '#description' => t('Your Comment goes here')
   );
   
-//  $form['country'] = array(
-//    '#type' => 'select',
-//    '#title' => t('Select your Country'),
-//    '#options' => array('USA', 'UK', 'France', 'Japan')
-//  );
+  $form['country'] = array(
+    '#type' => 'select',
+    '#title' => t('Select your Country'),
+    '#options' => array('USA', 'UK', 'France', 'Japan')
+  );
   
   $form['submit'] = array(
     '#type' => 'submit',
