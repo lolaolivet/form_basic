@@ -18,7 +18,7 @@ class ModuleTestingValueCase extends FormsTestCase {
     $this->drupalLogin($this->normal_user);
   }
   
-  function testRequiredFields() {
+  function searchMessage() {
     $this->drupalGet('hello');
     $this->assertText('Enter your comment');
   }
