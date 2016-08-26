@@ -18,8 +18,15 @@ class ModuleTestingValueCase extends DrupalWebTestCase {
     $this->drupalLogin($this->normal_user);
   }
   
-  function searchMessage() {
+//  function searchMessage() {
+//    $this->drupalGet('form');
+//    $this->assertText('Enter your comment');
+//  }
+
+  function valueEmpty(){
     $this->drupalGet('form');
-    $this->assertText('Enter your comment');
+    $value = 'last_name';
+    $this->assertNull($value, $message = 'Value is null', $groupe = 'Other');
+    )
   }
 }
