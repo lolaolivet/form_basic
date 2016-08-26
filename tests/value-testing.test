@@ -27,6 +27,5 @@ class ModuleTestingValueCase extends DrupalWebTestCase {
     $this->drupalGet('form');
     $value = 'last_name';
     $this->assertNull($value, $message = 'Value is null', $groupe = 'Other');
-    )
   }
 }
