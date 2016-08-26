@@ -17,16 +17,15 @@ class ModuleTestingValueCase extends DrupalWebTestCase {
     $this->normal_user = $this->drupalCreateUser();
     $this->drupalLogin($this->normal_user);
   }
-  
+
 //  function searchMessage() {
 //    $this->drupalGet('form');
 //    $this->assertText('Enter your comment');
 //  }
-
-  function valueEmpty(){
-    $this->drupalGet('form');
-    $value = 'last_name';
-    $this->assertText('Enter your comment');
-//    $this->assertNull($value, $message = 'Value is null', $groupe = 'Other');
+  
+  function testFormValidate($form, &$form_state) {
+    if ($form_state['values']['name'] == '') {
+      form_set_error('name', t('You must select a name for this group of settings.'));
+    }
   }
 }
