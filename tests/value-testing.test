@@ -19,7 +19,7 @@ class ModuleTestingValueCase extends DrupalWebTestCase {
   }
   
   function searchMessage() {
-    $this->drupalGet('hello');
+    $this->drupalGet('form');
     $this->assertText('Enter your comment');
   }
 }
